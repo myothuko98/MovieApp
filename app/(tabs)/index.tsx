@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { View, Text, FlatList, TextInput, StyleSheet, Animated, ActivityIndicator } from 'react-native';
 import { Movie } from '@/constants/interfaces';
 import useDebounce from '@/hooks/useDebounce';
@@ -24,11 +24,12 @@ const HomeScreen = () => {
     }).start();
   }, [movies]);
 
-  const fetchMovies = async (query = '') => {
+  // Add a limit parameter to the API call
+  const fetchMovies = async (query = '', limit = 20) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`https://freetestapi.com/api/v1/movies?search=${query}`);
+      const response = await fetch(`https://freetestapi.com/api/v1/movies?search=${query}&limit=${limit}`);
       if (!response.ok) {
         throw new Error('Failed to fetch movies');
       }
@@ -46,7 +47,7 @@ const HomeScreen = () => {
     }
   };
 
-  const renderMovieItem = ({ item }: { item: Movie }) => <MovieItem movie={item} />;
+  const renderMovieItem = useMemo(() => ({ item }: { item: Movie }) => <MovieItem movie={item} />, [movies]);
 
   return (
     <View style={styles.container}>

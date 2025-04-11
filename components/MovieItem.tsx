@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Movie } from '@/constants/interfaces';
@@ -14,7 +14,7 @@ type MovieDetailScreenNavigationProp = StackNavigationProp<RootStackParamList, '
 
 type MovieDetailScreenRouteProp = RouteProp<RootStackParamList, 'MovieDetail'>;
 
-const MovieItem = ({ movie }: { movie: Movie }) => {
+const MovieItem = memo(({ movie }: { movie: Movie }) => {
   const navigation = useNavigation<MovieDetailScreenNavigationProp>();
 
   return (
@@ -31,7 +31,7 @@ const MovieItem = ({ movie }: { movie: Movie }) => {
       </View>
     </TouchableOpacity>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
