@@ -95,6 +95,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     fontSize: 16,
     elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   errorText: {
     color: '#d32f2f',
