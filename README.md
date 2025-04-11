@@ -57,6 +57,12 @@ The Movie App is a React Native application that interacts with the [FreeTestAPI
 
 ---
 
+## APK Included
+
+The project includes a pre-built APK file (`MovieApp.apk`) located in the root of the `MovieApp` directory. You can use this APK to test the application on an Android device or emulator.
+
+---
+
 ## Technologies Used
 
 - **React Native**: For building the mobile application.
