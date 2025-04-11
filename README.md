@@ -67,10 +67,9 @@ The Movie App is a React Native application that interacts with the [FreeTestAPI
 ---
 
 ## Screenshots
-
-![Screenshot_1744365839](https://github.com/user-attachments/assets/373c286b-8787-4c1e-ae0f-970d854766ee)
-![Screenshot_1744366489](https://github.com/user-attachments/assets/8f44e4bf-cc55-4d95-88dd-af9f5b8629ee)
-![Screenshot_1744365854](https://github.com/user-attachments/assets/3d6986e4-a122-4c76-ba3b-f054c1c10b64)
+<img src="https://github.com/user-attachments/assets/373c286b-8787-4c1e-ae0f-970d854766ee" alt="screenshot" width="300" height="600" />
+<img src="https://github.com/user-attachments/assets/8f44e4bf-cc55-4d95-88dd-af9f5b8629ee" alt="screenshot" width="300" height="600" />
+<img src="https://github.com/user-attachments/assets/3d6986e4-a122-4c76-ba3b-f054c1c10b64" alt="screenshot" width="300" height="600" />
 
 
 ---
