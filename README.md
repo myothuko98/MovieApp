@@ -33,7 +33,7 @@ The Movie App is a React Native application that interacts with the [FreeTestAPI
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone [<repository-url>](https://github.com/myothuko98/MovieApp.git)
    ```
 
 2. Navigate to the project directory:
@@ -95,14 +95,6 @@ MovieApp/
 ├── package.json
 ├── tsconfig.json
 ```
-
----
-
-## Future Enhancements
-
-- Add animations for list updates during search filtering.
-- Improve UI/UX with advanced styling.
-
 ---
 
 ## License
