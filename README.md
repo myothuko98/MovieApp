@@ -73,10 +73,9 @@ The project includes a pre-built APK file (`MovieApp.apk`) located in the root o
 ---
 
 ## Screenshots
-<img src="https://github.com/user-attachments/assets/373c286b-8787-4c1e-ae0f-970d854766ee" alt="screenshot" width="300" height="600" />
-<img src="https://github.com/user-attachments/assets/8f44e4bf-cc55-4d95-88dd-af9f5b8629ee" alt="screenshot" width="300" height="600" />
-<img src="https://github.com/user-attachments/assets/3d6986e4-a122-4c76-ba3b-f054c1c10b64" alt="screenshot" width="300" height="600" />
-
+<img src="https://github.com/user-attachments/assets/0e0a9d2f-87d3-4990-a1e4-2a3a2945978f" alt="screenshot" width="300" height="600" />
+<img src="https://github.com/user-attachments/assets/8b2b7a80-9844-4379-a58a-e1c0156878a5" alt="screenshot" width="300" height="600" />
+<img src="https://github.com/user-attachments/assets/be8feb61-98da-40fe-86d5-7a5c4cebcb32" alt="screenshot" width="300" height="600" />
 
 ---
 
