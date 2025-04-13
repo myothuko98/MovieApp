@@ -17,6 +17,7 @@ The Movie App is a React Native application that interacts with the [FreeTestAPI
 - Includes a search bar to filter movies dynamically.
 - Sends API requests with the search query.
 - Debounced input to optimize performance.
+- Clear button to reset the search input.
 
 ### 3. Movie Detail Screen
 - Navigates to a detail screen on selecting a movie.
@@ -26,6 +27,9 @@ The Movie App is a React Native application that interacts with the [FreeTestAPI
 - Loading indicators for data fetching.
 - Error messages for API failures.
 - Displays a message for empty search results.
+
+### 5. Pagination Support
+- API supports limiting the number of results using a `limit` parameter.
 
 ---
 
@@ -73,9 +77,12 @@ The project includes a pre-built APK file (`MovieApp.apk`) located in the root o
 ---
 
 ## Screenshots
-<img src="https://github.com/user-attachments/assets/0e0a9d2f-87d3-4990-a1e4-2a3a2945978f" alt="screenshot" width="300" height="600" />
-<img src="https://github.com/user-attachments/assets/8b2b7a80-9844-4379-a58a-e1c0156878a5" alt="screenshot" width="300" height="600" />
-<img src="https://github.com/user-attachments/assets/be8feb61-98da-40fe-86d5-7a5c4cebcb32" alt="screenshot" width="300" height="600" />
+
+Below are some screenshots of the app:
+
+<img src="https://github.com/user-attachments/assets/0e0a9d2f-87d3-4990-a1e4-2a3a2945978f" alt="Home Screen" width="300" height="600" />
+<img src="https://github.com/user-attachments/assets/8b2b7a80-9844-4379-a58a-e1c0156878a5" alt="Search Screen" width="300" height="600" />
+<img src="https://github.com/user-attachments/assets/be8feb61-98da-40fe-86d5-7a5c4cebcb32" alt="Movie Detail Screen" width="300" height="600" />
 
 ---
 
@@ -102,6 +109,7 @@ MovieApp/
 ├── package.json
 ├── tsconfig.json
 ```
+
 ---
 
 ## License
