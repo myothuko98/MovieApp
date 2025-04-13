@@ -1,53 +1,13 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { View, Text, FlatList, TextInput, StyleSheet, Animated, ActivityIndicator } from 'react-native';
-import { Movie } from '@/constants/interfaces';
+import React, { useState } from 'react';
+import { View, Text, FlatList, TextInput, StyleSheet, ActivityIndicator } from 'react-native';
 import useDebounce from '@/hooks/useDebounce';
+import useFetchMovies from '@/hooks/useFetchMovies';
 import MovieItem from '@/components/MovieItem';
 
 const HomeScreen = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const debouncedSearchQuery = useDebounce(searchQuery, 500);
-  const fadeAnim = new Animated.Value(0);
-
-  useEffect(() => {
-    fetchMovies(debouncedSearchQuery);
-  }, [debouncedSearchQuery]);
-
-  useEffect(() => {
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
-  }, [movies]);
-
-  // Add a limit parameter to the API call
-  const fetchMovies = async (query = '', limit = 20) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(`https://freetestapi.com/api/v1/movies?search=${query}&limit=${limit}`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch movies');
-      }
-      const data: Movie[] = await response.json();
-      setMovies(data);
-      fadeAnim.setValue(0);
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        setError(error.message);
-      } else {
-        setError('An unknown error occurred');
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const renderMovieItem = useMemo(() => ({ item }: { item: Movie }) => <MovieItem movie={item} />, [movies]);
+  const { movies, loading, error } = useFetchMovies(debouncedSearchQuery);
 
   return (
     <View style={styles.container}>
@@ -65,14 +25,12 @@ const HomeScreen = () => {
       ) : movies.length === 0 ? (
         <Text style={styles.emptyText}>No movies found.</Text>
       ) : (
-        <Animated.View style={{ opacity: fadeAnim }}>
-          <FlatList
-            data={movies}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={renderMovieItem}
-            contentContainerStyle={styles.listContainer}
-          />
-        </Animated.View>
+        <FlatList
+          data={movies}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => <MovieItem movie={item} />}
+          contentContainerStyle={styles.listContainer}
+        />
       )}
     </View>
   );
