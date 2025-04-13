@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, TextInput, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, FlatList, TextInput, StyleSheet, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import useDebounce from '@/hooks/useDebounce';
 import useFetchMovies from '@/hooks/useFetchMovies';
 import MovieItem from '@/components/MovieItem';
@@ -11,15 +12,24 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.searchBar}
-        placeholder="Search movies..."
-        placeholderTextColor="#888"
-        value={searchQuery}
-        onChangeText={setSearchQuery}
-      />
+      <View style={styles.searchContainer}>
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search movies..."
+          placeholderTextColor="#888"
+          value={searchQuery}
+          onChangeText={setSearchQuery}
+        />
+        {searchQuery.length > 0 && (
+          <TouchableOpacity onPress={() => setSearchQuery('')} style={styles.clearButton}>
+            <Ionicons name="close-circle" size={24} color="#888" />
+          </TouchableOpacity>
+        )}
+      </View>
       {loading ? (
-        <ActivityIndicator size="large" color="#6200ee" />
+        <View style={styles.loadingIndicator}>
+          <ActivityIndicator size="large" color="#6200ee" />
+        </View>
       ) : error ? (
         <Text style={styles.errorText}>{error}</Text>
       ) : movies.length === 0 ? (
@@ -41,22 +51,26 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     backgroundColor: '#f5f5f5',
-    paddingBottom: 48,
+    paddingBottom: 28,
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'relative',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 8,
+    paddingHorizontal: 8,
+    backgroundColor: '#fff',
   },
   searchBar: {
-    height: 50,
-    borderColor: '#6200ee',
-    borderWidth: 1,
-    borderRadius: 25,
-    paddingHorizontal: 16,
-    marginBottom: 16,
-    backgroundColor: '#fff',
+    flex: 1,
+    height: 40,
     fontSize: 16,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    color: '#000',
+  },
+  clearButton: {
+    marginLeft: 8,
   },
   errorText: {
     color: '#d32f2f',
@@ -71,7 +85,12 @@ const styles = StyleSheet.create({
     color: '#757575',
   },
   listContainer: {
-    paddingBottom: 28,
+    paddingBottom: 0,
+  },
+  loadingIndicator: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

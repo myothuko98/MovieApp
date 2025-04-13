@@ -16,7 +16,7 @@ const MovieDetailScreen = () => {
   const { movie, loading, error } = useFetchMovieDetails(id);
 
   if (loading) {
-    return <ActivityIndicator size="large" color="#0000ff" style={styles.loadingIndicator} />;
+    return <ActivityIndicator size="large" color="#6200ee" style={styles.loadingIndicator} />;
   }
 
   if (error) {
